@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from 'react';
+// Styles
+import styles from './Landing.module.css';
 //Api
 import { getCoin } from '../services/api';
 //Components
@@ -23,8 +25,16 @@ const Landing = () => {
 
       return (
             <>
-                  <input type='text' placeholder='Search' value={search} onChange={searchOnChange} />
-                  {coins.length ? searchedCoins.map(coin => <Coin key={coin.id} coin={coin} />) : <Loader />}
+                  <input className={styles.input} type='text' placeholder='Search' value={search} onChange={searchOnChange} />
+                  {coins.length ? 
+                        <div className={styles.coinContainer}>
+                              {searchedCoins.map(coin => (
+                                    <Coin key={coin.id} coin={coin} />
+                                     ))}
+                        </div>
+                   : 
+                        <Loader />
+                  }
             </>
       );
 };
