@@ -9,8 +9,8 @@ const Coin = ({ coin }) => {
                   <span>{name}</span>
                   <span>{symbol.toUpperCase()}</span>
                   <span>$ {current_price.toLocaleString()}</span>
-                  <span>{price_change_percentage_24h}</span>
-                  <span>{market_cap.toLocaleString()}</span>
+                  <span>{price_change_percentage_24h.toFixed(2)}</span>
+                  <span>$ {market_cap.toLocaleString()}</span>
             </div>
       );
 };
